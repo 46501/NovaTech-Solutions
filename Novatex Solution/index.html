@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech Solutions - Innovating the Future</title>
+    <meta name="description" content="NovaTech Solutions offers premium web development, AI, data analytics, and cloud services for modern businesses.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="ph ph-hexagon-fill"></i>
+                NovaTech
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary nav-btn">Get Started</a>
+                <button class="mobile-menu-btn" aria-label="Menu">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Shaping the Future with <span>Digital Innovation</span></h1>
+                <p class="hero-desc">We build premium, scalable, and AI-driven technology solutions to accelerate your business growth and transform your ideas into reality.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#services" class="btn btn-outline">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Technology Innovation" class="floating-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>About Us</h2>
+                <p>Empowering businesses through cutting-edge technology.</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-target"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>To deliver innovative, reliable, and scalable technology solutions that drive business transformation globally.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>To be the world's leading technology partner, recognized for exceptional quality and forward-thinking solutions.</p>
+                </div>
+                <div class="about-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-shield-check"></i></div>
+                    <h3>Why Choose Us</h3>
+                    <p>We combine industry expertise, agile methodologies, and premium design to ensure your success.</p>
+                </div>
+            </div>
+
+            <div class="stats-container" id="stats">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="250">0</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="50">0</h3>
+                    <p>Expert Team</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="100">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="10">0</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section section-padding bg-alt">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Services</h2>
+                <p>Comprehensive technology solutions tailored to your needs.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Custom, responsive, and high-performance websites built with modern frameworks.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-device-mobile"></i></div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-brain"></i></div>
+                    <h3>AI Solutions</h3>
+                    <p>Intelligent automation, machine learning models, and data-driven insights.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-chart-bar"></i></div>
+                    <h3>Data Analytics</h3>
+                    <p>Transform raw data into actionable business intelligence.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-cloud"></i></div>
+                    <h3>Cloud Services</h3>
+                    <p>Scalable cloud infrastructure, migration, and management solutions.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="icon-wrapper"><i class="ph ph-paint-brush"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Premium, user-centric interfaces that engage and convert.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section id="process" class="process-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Process</h2>
+                <p>A streamlined workflow for successful delivery.</p>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="icon-wrapper"><i class="ph ph-magnifying-glass"></i></div>
+                    <h3>Research</h3>
+                    <p>We analyze your requirements and market to formulate a strategy.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="icon-wrapper"><i class="ph ph-pencil-line"></i></div>
+                    <h3>Planning</h3>
+                    <p>Creating wireframes, architecture, and detailed project roadmaps.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="icon-wrapper"><i class="ph ph-terminal-window"></i></div>
+                    <h3>Development</h3>
+                    <p>Agile development with regular updates and quality assurance.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="icon-wrapper"><i class="ph ph-rocket-launch"></i></div>
+                    <h3>Launch</h3>
+                    <p>Deployment, monitoring, and ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio-section section-padding bg-alt">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Our Portfolio</h2>
+                <p>Recent projects we are proud of.</p>
+            </div>
+            
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="FinTech Dashboard">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Finova Dashboard</h3>
+                        <p>FinTech / Web App</p>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" alt="Mobile App">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>HealthTrack</h3>
+                        <p>Healthcare / Mobile App</p>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="E-Commerce Platform">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Lumina Shop</h3>
+                        <p>Retail / E-Commerce</p>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="AI Analytics">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Nexus AI</h3>
+                        <p>Data / Machine Learning</p>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&q=80" alt="SaaS Platform">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>TaskFlow</h3>
+                        <p>Productivity / SaaS</p>
+                    </div>
+                </div>
+                <!-- Project 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="Cloud Infrastructure">
+                        <div class="portfolio-overlay">
+                            <a href="#" class="view-btn"><i class="ph ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>CloudSphere</h3>
+                        <p>Enterprise / Cloud Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Meet Our Team</h2>
+                <p>The brilliant minds behind our success.</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card glass-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="CEO">
+                    <div class="team-info">
+                        <h3>Michael Chen</h3>
+                        <p>Founder & CEO</p>
+                        <div class="social-links">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card glass-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="CTO">
+                    <div class="team-info">
+                        <h3>Sarah Jenkins</h3>
+                        <p>Chief Technology Officer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-github-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card glass-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80" alt="Design Lead">
+                    <div class="team-info">
+                        <h3>David Rodriguez</h3>
+                        <p>Lead UI/UX Designer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-dribbble-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card glass-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80" alt="Lead Developer">
+                    <div class="team-info">
+                        <h3>Emily Watson</h3>
+                        <p>Lead AI Engineer</p>
+                        <div class="social-links">
+                            <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                            <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section section-padding bg-alt">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about our services.</p>
+            </div>
+            
+            <div class="testimonial-slider-container">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide glass-card">
+                        <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="testimonial-text">"NovaTech completely transformed our digital presence. Their team is highly skilled, professional, and delivered our project ahead of schedule."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <h4>James Wilson</h4>
+                                <span>CEO at TechCorp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide glass-card">
+                        <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="testimonial-text">"The AI solution they built for us reduced our operational costs by 30%. Incredible team with deep technical expertise."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <h4>Amanda Smith</h4>
+                                <span>COO at DataFlow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide glass-card">
+                        <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="testimonial-text">"Outstanding UI/UX design. Our user engagement skyrocketed after they redesigned our SaaS platform. Highly recommend."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <h4>Robert Fox</h4>
+                                <span>Product Manager</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide glass-card">
+                        <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="testimonial-text">"Reliable cloud migration service. They ensured zero downtime and handled everything seamlessly."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <h4>Lisa Trevor</h4>
+                                <span>IT Director</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 5 -->
+                    <div class="testimonial-slide glass-card">
+                        <div class="quote-icon"><i class="ph-fill ph-quotes"></i></div>
+                        <p class="testimonial-text">"Their mobile app development team is top-notch. Our iOS and Android apps have flawless performance and beautiful design."</p>
+                        <div class="client-info">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Client">
+                            <div>
+                                <h4>Mark Stevenson</h4>
+                                <span>Startup Founder</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" aria-label="Previous testimonial"><i class="ph ph-caret-left"></i></button>
+                    <div class="slider-dots" id="sliderDots"></div>
+                    <button class="slider-btn next-btn" aria-label="Next testimonial"><i class="ph ph-caret-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Pricing Plans</h2>
+                <p>Transparent pricing for solutions of all sizes.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card glass-card">
+                    <div class="pricing-header">
+                        <h3>Basic</h3>
+                        <div class="price"><span>$</span>999</div>
+                        <p>Perfect for small businesses</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph ph-check-circle"></i> Custom Website Design</li>
+                        <li><i class="ph ph-check-circle"></i> Mobile Responsive</li>
+                        <li><i class="ph ph-check-circle"></i> Basic SEO Optimization</li>
+                        <li><i class="ph ph-check-circle"></i> 1 Month Support</li>
+                        <li class="disabled"><i class="ph ph-x-circle"></i> Custom Integrations</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline full-width">Choose Plan</a>
+                </div>
+                <!-- Professional Plan -->
+                <div class="pricing-card glass-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price"><span>$</span>2,499</div>
+                        <p>Ideal for growing companies</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph ph-check-circle"></i> Full-Stack Web App</li>
+                        <li><i class="ph ph-check-circle"></i> Advanced UI/UX Design</li>
+                        <li><i class="ph ph-check-circle"></i> E-Commerce Integration</li>
+                        <li><i class="ph ph-check-circle"></i> 6 Months Support</li>
+                        <li><i class="ph ph-check-circle"></i> API Integrations</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary full-width">Choose Plan</a>
+                </div>
+                <!-- Enterprise Plan -->
+                <div class="pricing-card glass-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">Custom</div>
+                        <p>For large scale operations</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="ph ph-check-circle"></i> Complex AI Solutions</li>
+                        <li><i class="ph ph-check-circle"></i> Enterprise Cloud Migration</li>
+                        <li><i class="ph ph-check-circle"></i> Dedicated Development Team</li>
+                        <li><i class="ph ph-check-circle"></i> 24/7 Priority Support</li>
+                        <li><i class="ph ph-check-circle"></i> Custom Security Compliance</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline full-width">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section section-padding bg-alt">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions.</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What services do you provide?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We provide a comprehensive range of technology services including Web & Mobile App Development, AI Solutions, Data Analytics, Cloud Migration, and UI/UX Design.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does a typical project take?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary depending on complexity. A standard corporate website might take 4-6 weeks, while complex web applications or AI integrations can take 3-6 months.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer post-launch support?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various maintenance and support packages to ensure your software remains updated, secure, and performs optimally post-launch.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What tech stack do you use?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with modern technologies like React, Node.js, Python, AWS, and Azure, tailoring the tech stack to best suit your specific project requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can you work with our existing team?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely. We frequently practice team augmentation, integrating seamlessly with in-house teams to provide specialized expertise or additional development capacity.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do you handle project pricing?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer both fixed-price contracts for well-defined scopes and time-and-materials pricing for agile projects with evolving requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Are your designs mobile-friendly?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, all our designs follow a mobile-first approach, ensuring seamless performance and aesthetics across smartphones, tablets, and desktop devices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How do we get started?
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply reach out via our contact form below. We'll schedule a discovery call to discuss your goals, requirements, and how we can help you achieve them.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2>Get in Touch</h2>
+                <p>Ready to start your next project? Let's talk.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info glass-card">
+                    <h3>Contact Information</h3>
+                    <p>Fill up the form and our team will get back to you within 24 hours.</p>
+                    
+                    <ul class="info-list">
+                        <li>
+                            <i class="ph ph-phone-call"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="ph ph-envelope-simple"></i>
+                            <span>hello@novatech.solutions</span>
+                        </li>
+                        <li>
+                            <i class="ph ph-map-pin"></i>
+                            <span>123 Innovation Drive, Tech City, TC 94043</span>
+                        </li>
+                    </ul>
+
+                    <div class="contact-socials">
+                        <a href="#"><i class="ph ph-facebook-logo"></i></a>
+                        <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                        <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                        <a href="#"><i class="ph ph-linkedin-logo"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container glass-card">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Project Inquiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div class="map-container glass-card">
+                <!-- A placeholder for Google Maps using an iframe -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0673413933513!2d-122.08385108428867!3d37.38712997983172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb0a6b4a2e5d5%3A0x8e833481b37130a1!2sSilicon%20Valley!5e0!3m2!1sen!2sus!4v1628123456789!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo footer-logo">
+                        <i class="ph ph-hexagon-fill"></i>
+                        NovaTech
+                    </a>
+                    <p class="footer-desc">Building the digital future through premium technology solutions and unparalleled innovation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">AI Solutions</a></li>
+                        <li><a href="#">Cloud Services</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for the latest tech insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email Address" required>
+                        <button type="submit" aria-label="Subscribe"><i class="ph ph-paper-plane-right"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 NovaTech Solutions. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button id="scrollToTop" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
