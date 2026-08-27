@@ -349,7 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
         };
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             let isValid = true;
@@ -377,20 +377,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!isValid) return;
 
-            // Simulate form submission
+            // Actual form submission
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
             btn.innerText = 'Sending...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
             
-            setTimeout(() => {
-                formStatus.innerText = "Demo message sent successfully! (No actual email sent)";
-                formStatus.style.color = "#10B981"; // Success Green
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    formStatus.innerText = "Message sent successfully! We'll get back to you soon.";
+                    formStatus.style.color = "#10B981"; // Success Green
+                    formStatus.style.display = "block";
+                    contactForm.reset();
+                } else {
+                    const responseData = await response.json();
+                    if (responseData.hasOwnProperty('errors')) {
+                        formStatus.innerText = responseData.errors.map(error => error.message).join(", ");
+                    } else {
+                        formStatus.innerText = "Oops! There was a problem submitting your form.";
+                    }
+                    formStatus.style.color = "#EF4444"; // Error Red
+                    formStatus.style.display = "block";
+                }
+            } catch (error) {
+                formStatus.innerText = "Oops! There was a network error. Please try again later.";
+                formStatus.style.color = "#EF4444";
                 formStatus.style.display = "block";
-                
-                contactForm.reset();
-                
+            } finally {
                 btn.innerText = originalText;
                 btn.style.opacity = '1';
                 btn.disabled = false;
@@ -398,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     formStatus.style.display = "none";
                 }, 5000);
-            }, 1500);
+            }
         });
     }
 });
