@@ -1,13 +1,13 @@
 // js/profile.js
-const supabase = window.supabaseClient;
+
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Ensure we are on the dashboard
     if (!window.location.pathname.includes('dashboard.html')) return;
     
-    if (!supabase) return;
+    if (!window.supabaseClient) return;
 
-    const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+    const { data: { session }, error: sessionError } = await window.supabaseClient.auth.getSession();
     
     if (sessionError || !session) {
         // Redirection handled by auth.js, but just in case:

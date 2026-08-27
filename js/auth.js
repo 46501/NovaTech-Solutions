@@ -1,5 +1,5 @@
 // js/auth.js
-const supabase = window.supabaseClient;
+
 
 // Utility functions for UI
 function showAlert(message, type) {
@@ -47,9 +47,9 @@ window.togglePasswordVisibility = function(inputId) {
 
 // Authentication State Management
 async function checkAuthState() {
-    if (!supabase) return;
+    if (!window.supabaseClient) return;
 
-    const { data: { session }, error } = await supabase.auth.getSession();
+    const { data: { session }, error } = await window.supabaseClient.auth.getSession();
     
     // Determine current page
     const path = window.location.pathname;
@@ -75,7 +75,7 @@ async function checkAuthState() {
     if (logoutBtn) {
         logoutBtn.addEventListener('click', async (e) => {
             e.preventDefault();
-            await supabase.auth.signOut();
+            await window.supabaseClient.auth.signOut();
             window.location.href = isDashboard ? 'index.html' : 'index.html'; // Go home
         });
     }
@@ -98,7 +98,7 @@ function updateNavbar(session) {
         // Setup listener for the newly injected logout button
         document.getElementById('logoutBtn').addEventListener('click', async (e) => {
             e.preventDefault();
-            await supabase.auth.signOut();
+            await window.supabaseClient.auth.signOut();
             window.location.href = isRoot ? 'index.html' : '../index.html';
         });
     } else {
@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     checkAuthState();
     
     // Also listen for auth state changes (e.g. login from another tab)
-    if (supabase) {
-        supabase.auth.onAuthStateChange((event, session) => {
+    if (window.supabaseClient) {
+        window.supabaseClient.auth.onAuthStateChange((event, session) => {
             checkAuthState();
         });
     }
@@ -134,7 +134,7 @@ if (loginForm) {
         
         toggleLoading(btn, true);
         
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await window.supabaseClient.auth.signInWithPassword({
             email,
             password
         });
@@ -173,7 +173,7 @@ if (signupForm) {
         
         toggleLoading(btn, true);
         
-        const { data, error } = await supabase.auth.signUp({
+        const { data, error } = await window.supabaseClient.auth.signUp({
             email,
             password,
             options: {
@@ -210,7 +210,7 @@ if (forgotPasswordForm) {
         
         toggleLoading(btn, true);
         
-        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
             redirectTo: window.location.origin + '/auth/reset-password.html',
         });
         
@@ -245,7 +245,7 @@ if (resetPasswordForm) {
         
         toggleLoading(btn, true);
         
-        const { error } = await supabase.auth.updateUser({
+        const { error } = await window.supabaseClient.auth.updateUser({
             password: password
         });
         
