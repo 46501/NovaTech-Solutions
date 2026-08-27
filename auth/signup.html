@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - NovaTech Solutions</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="../index.html" class="logo" style="display: flex;">
+                    <i class="ph ph-hexagon-fill"></i>
+                    NovaTech
+                </a>
+                <h1>Create an Account</h1>
+                <p>Join NovaTech Solutions today</p>
+            </div>
+            
+            <div id="authAlert" class="auth-alert"></div>
+
+            <form id="signupForm" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    <span class="error-message" id="fullNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Min. 8 characters" required>
+                        <button type="button" class="toggle-password" aria-label="Show password" onclick="togglePasswordVisibility('password')">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="passwordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat your password" required>
+                        <button type="button" class="toggle-password" aria-label="Show password" onclick="togglePasswordVisibility('confirmPassword')">
+                            <i class="ph ph-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="confirmPasswordError"></span>
+                </div>
+                
+                <div class="auth-options">
+                    <label class="checkbox-label" style="align-items: flex-start;">
+                        <input type="checkbox" id="terms" required style="margin-top: 4px;">
+                        <span>I agree to the <a href="#" class="auth-link">Terms & Conditions</a> and <a href="#" class="auth-link">Privacy Policy</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary auth-btn" id="submitBtn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="loader-spinner"></span>
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                Already have an account? <a href="login.html" class="auth-link">Log in</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/config.js"></script>
+    <script src="../js/supabase-client.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

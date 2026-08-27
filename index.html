@@ -23,11 +23,11 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -58,7 +58,9 @@
                 <button id="theme-toggle" aria-label="Toggle Dark Mode">
                     <i class="ph ph-moon"></i>
                 </button>
-                <a href="#contact" class="btn btn-primary nav-btn">Get Started</a>
+                <div id="auth-nav-container">
+                    <!-- Injected by auth.js -->
+                </div>
                 <button class="mobile-menu-btn" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
                     <i class="ph ph-list"></i>
                 </button>
@@ -724,7 +726,10 @@
         <i class="ph ph-arrow-up"></i>
     </button>
 
-    <!-- Custom JS -->
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

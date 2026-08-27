@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NovaTech Solutions</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="ph ph-hexagon-fill"></i>
+                NovaTech
+            </a>
+            <nav class="navbar">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#portfolio">Portfolio</a></li>
+                    <li><a href="index.html#pricing">Pricing</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="ph ph-moon"></i>
+                </button>
+                <div id="auth-nav-container">
+                    <!-- Injected by auth.js -->
+                </div>
+                <button class="mobile-menu-btn" aria-label="Menu" aria-controls="nav-links" aria-expanded="false">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container dashboard-container">
+        <h1>Dashboard</h1>
+        <p>Manage your NovaTech account settings.</p>
+
+        <div id="authAlert" class="auth-alert"></div>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="profile-avatar" id="avatarInitials">
+                    <!-- Initials injected via JS -->
+                </div>
+                <div class="profile-info">
+                    <h2 id="displayFullName">Loading...</h2>
+                    <p id="displayEmail">loading@example.com</p>
+                </div>
+            </div>
+
+            <form id="profileForm" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+                    <span class="error-message" id="fullNameError"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-primary auth-btn" id="updateProfileBtn">
+                    <span class="btn-text">Save Changes</span>
+                    <span class="loader-spinner"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/supabase-client.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/script.js"></script> <!-- Keep theme toggle & mobile menu -->
+</body>
+</html>
