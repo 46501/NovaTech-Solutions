@@ -173,13 +173,16 @@ if (signupForm) {
         
         toggleLoading(btn, true);
         
+        const redirectUrl = window.location.href.replace('signup.html', 'login.html');
+        
         const { data, error } = await window.supabaseClient.auth.signUp({
             email,
             password,
             options: {
                 data: {
                     full_name: fullName
-                }
+                },
+                emailRedirectTo: redirectUrl
             }
         });
         
@@ -210,8 +213,10 @@ if (forgotPasswordForm) {
         
         toggleLoading(btn, true);
         
+        const redirectUrl = window.location.href.replace('forgot-password.html', 'reset-password.html');
+        
         const { error } = await window.supabaseClient.auth.resetPasswordForEmail(email, {
-            redirectTo: window.location.origin + '/auth/reset-password.html',
+            redirectTo: redirectUrl,
         });
         
         toggleLoading(btn, false);
