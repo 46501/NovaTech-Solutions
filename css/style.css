@@ -1047,6 +1047,18 @@ header.scrolled {
     box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: #EF4444;
+}
+
+.error-message {
+    color: #EF4444;
+    font-size: 0.85rem;
+    display: none;
+    margin-top: 5px;
+}
+
 .map-container {
     padding: 10px;
     border-radius: 20px;
@@ -1270,16 +1282,7 @@ header.scrolled {
     .section-padding { padding: 60px 0; }
     .hero-title { font-size: 2.5rem; }
     
-    .nav-links, .nav-btn {
-        display: none;
-    }
-    
-    .mobile-menu-btn {
-        display: block;
-    }
-    
-    /* Simple mobile menu activation via JS could be added later, hiding it by default */
-    .nav-links.mobile-active {
+    .nav-links {
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -1290,6 +1293,24 @@ header.scrolled {
         padding: 20px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         border-top: 1px solid var(--border-color);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-btn {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .nav-links.mobile-active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
     }
     
     .hero-container {

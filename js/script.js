@@ -81,9 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
     
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-active');
+        const isActive = navLinks.classList.toggle('mobile-active');
+        mobileMenuBtn.setAttribute('aria-expanded', isActive);
+        
         const icon = mobileMenuBtn.querySelector('i');
-        if (navLinks.classList.contains('mobile-active')) {
+        if (isActive) {
             icon.classList.replace('ph-list', 'ph-x');
         } else {
             icon.classList.replace('ph-x', 'ph-list');
@@ -94,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('mobile-active');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
             mobileMenuBtn.querySelector('i').classList.replace('ph-x', 'ph-list');
         });
     });
@@ -321,81 +324,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* =========================================
-       Contact Form Submission (Formspree)
+       Contact Form Validation & Demo Submission
     ========================================= */
     const contactForm = document.getElementById('contactForm');
     const formStatus = document.getElementById('form-status');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
+        const inputs = contactForm.querySelectorAll('input, textarea');
+        
+        // Remove error states on input
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                input.classList.remove('invalid');
+                const errorSpan = document.getElementById(`${input.id}Error`);
+                if (errorSpan) errorSpan.style.display = 'none';
+            });
+        });
+
+        const validateEmail = (email) => {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        };
+
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
+            let isValid = true;
+            
+            // Validate fields
+            inputs.forEach(input => {
+                const errorSpan = document.getElementById(`${input.id}Error`);
+                
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('invalid');
+                    if (errorSpan) {
+                        errorSpan.innerText = 'This field is required';
+                        errorSpan.style.display = 'block';
+                    }
+                } else if (input.type === 'email' && !validateEmail(input.value)) {
+                    isValid = false;
+                    input.classList.add('invalid');
+                    if (errorSpan) {
+                        errorSpan.innerText = 'Please enter a valid email address';
+                        errorSpan.style.display = 'block';
+                    }
+                }
+            });
+
+            if (!isValid) return;
+
+            // Simulate form submission
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
             btn.innerText = 'Sending...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
             
-            // Check if user still hasn't replaced the placeholder ID
-            if (contactForm.action.includes('YOUR_FORM_ID')) {
-                // Simulate submission to avoid 404 error
-                setTimeout(() => {
-                    formStatus.innerText = "Message simulated! (Please replace 'YOUR_FORM_ID' in index.html to actually receive emails)";
-                    formStatus.style.color = "#F59E0B"; // Warning Orange
-                    formStatus.style.display = "block";
-                    contactForm.reset();
-                    
-                    btn.innerText = originalText;
-                    btn.style.opacity = '1';
-                    btn.disabled = false;
-                    
-                    setTimeout(() => {
-                        formStatus.style.display = "none";
-                    }, 5000);
-                }, 1500);
-                return;
-            }
-
-            const data = new FormData(contactForm);
-            
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    formStatus.innerText = "Thanks for your message! We'll get back to you soon.";
-                    formStatus.style.color = "#10B981"; // Success Green
-                    formStatus.style.display = "block";
-                    contactForm.reset();
-                } else {
-                    const responseData = await response.json();
-                    if (responseData.hasOwnProperty('errors')) {
-                        formStatus.innerText = responseData.errors.map(error => error.message).join(", ");
-                    } else {
-                        formStatus.innerText = "Oops! There was a problem submitting your form.";
-                    }
-                    formStatus.style.color = "#EF4444"; // Error Red
-                    formStatus.style.display = "block";
-                }
-            } catch (error) {
-                formStatus.innerText = "Oops! There was a problem submitting your form.";
-                formStatus.style.color = "#EF4444";
+            setTimeout(() => {
+                formStatus.innerText = "Demo message sent successfully! (No actual email sent)";
+                formStatus.style.color = "#10B981"; // Success Green
                 formStatus.style.display = "block";
-            } finally {
+                
+                contactForm.reset();
+                
                 btn.innerText = originalText;
                 btn.style.opacity = '1';
                 btn.disabled = false;
                 
-                // Hide status message after 5 seconds
                 setTimeout(() => {
                     formStatus.style.display = "none";
                 }, 5000);
-            }
+            }, 1500);
         });
     }
 });
