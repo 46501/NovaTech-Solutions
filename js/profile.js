@@ -19,34 +19,41 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Fetch profile data
     async function loadProfile() {
-        const { data: profile, error } = await supabase
-            .from('profiles')
-            .select('*')
-            .eq('id', user.id)
-            .single();
+        try {
+            const { data: profile, error } = await window.supabaseClient
+                .from('profiles')
+                .select('*')
+                .eq('id', user.id)
+                .maybeSingle();
+                
+            if (error) throw error;
             
-        if (error) {
-            console.error('Error fetching profile:', error);
-            showAlert('Could not load profile data.', 'error');
-            return;
-        }
-        
-        if (profile) {
-            document.getElementById('displayFullName').textContent = profile.full_name || 'No Name';
-            document.getElementById('displayEmail').textContent = profile.email;
-            document.getElementById('fullName').value = profile.full_name || '';
+            const displayName = profile?.full_name || user.user_metadata?.full_name || 'No Name';
+            const displayEmail = profile?.email || user.email || 'No Email';
+            
+            document.getElementById('displayFullName').textContent = displayName;
+            document.getElementById('displayEmail').textContent = displayEmail;
+            document.getElementById('fullName').value = displayName === 'No Name' ? '' : displayName;
             
             // Set Avatar Initials
             const avatarDiv = document.getElementById('avatarInitials');
-            if (profile.full_name) {
-                const parts = profile.full_name.split(' ');
+            if (displayName && displayName !== 'No Name') {
+                const parts = displayName.split(' ').filter(Boolean);
                 const initials = parts.length > 1 
                     ? parts[0][0] + parts[parts.length-1][0] 
                     : parts[0][0];
                 avatarDiv.textContent = initials.toUpperCase();
-            } else {
-                avatarDiv.textContent = profile.email[0].toUpperCase();
+            } else if (displayEmail) {
+                avatarDiv.textContent = displayEmail[0].toUpperCase();
             }
+        } catch (error) {
+            console.error('Error fetching profile:', error);
+            // Even on error, do not leave it stuck on "Loading..."
+            const fallbackName = user.user_metadata?.full_name || 'No Name';
+            document.getElementById('displayFullName').textContent = fallbackName;
+            document.getElementById('displayEmail').textContent = user.email;
+            document.getElementById('fullName').value = fallbackName === 'No Name' ? '' : fallbackName;
+            showAlert('Could not load profile from database. Using session data.', 'error');
         }
     }
     
@@ -68,19 +75,32 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             toggleLoading(btn, true);
             
-            const { error } = await supabase
-                .from('profiles')
-                .update({ full_name: fullName })
-                .eq('id', user.id);
+            try {
+                // Upsert ensures that if the profile row is missing, it will be created.
+                const { error } = await window.supabaseClient
+                    .from('profiles')
+                    .upsert({ 
+                        id: user.id, 
+                        full_name: fullName,
+                        email: user.email,
+                        updated_at: new Date().toISOString()
+                    });
+                    
+                if (error) throw error;
                 
-            toggleLoading(btn, false);
-            
-            if (error) {
-                showAlert('Error updating profile: ' + error.message, 'error');
-            } else {
+                // Keep auth metadata in sync
+                await window.supabaseClient.auth.updateUser({
+                    data: { full_name: fullName }
+                });
+                
                 showAlert('Profile updated successfully!', 'success');
                 // Reload UI
                 loadProfile();
+            } catch (error) {
+                console.error('Update error:', error);
+                showAlert('Error updating profile: ' + error.message, 'error');
+            } finally {
+                toggleLoading(btn, false);
             }
         });
     }
