@@ -96,6 +96,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 showAlert('Profile updated successfully!', 'success');
                 // Reload UI
                 loadProfile();
+                
+                // Redirect after a short delay
+                setTimeout(() => {
+                    window.location.href = 'dashboard.html';
+                }, 1000);
             } catch (error) {
                 console.error('Update error:', error);
                 showAlert('Error updating profile: ' + error.message, 'error');
