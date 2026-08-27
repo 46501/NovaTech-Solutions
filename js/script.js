@@ -67,12 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    scrollToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     /* =========================================
        Mobile Menu Toggle
@@ -200,74 +202,80 @@ document.addEventListener('DOMContentLoaded', () => {
        Testimonial Slider
     ========================================= */
     const track = document.getElementById('testimonialTrack');
-    const slides = Array.from(track.children);
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const dotsContainer = document.getElementById('sliderDots');
-    
-    let currentIndex = 0;
-    let autoPlayInterval;
-    
-    // Create Dots
-    slides.forEach((_, index) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (index === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(index));
-        dotsContainer.appendChild(dot);
-    });
-    
-    const dots = Array.from(dotsContainer.children);
-    
-    const updateSlider = () => {
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[currentIndex].classList.add('active');
-    };
-    
-    const goToSlide = (index) => {
-        currentIndex = index;
-        updateSlider();
-        resetAutoPlay();
-    };
-    
-    const nextSlide = () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    };
-    
-    const prevSlide = () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider();
-    };
-    
-    nextBtn.addEventListener('click', () => {
-        nextSlide();
-        resetAutoPlay();
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        prevSlide();
-        resetAutoPlay();
-    });
-    
-    // Auto Play
-    const startAutoPlay = () => {
-        autoPlayInterval = setInterval(nextSlide, 5000);
-    };
-    
-    const resetAutoPlay = () => {
-        clearInterval(autoPlayInterval);
+    if (track) {
+        const slides = Array.from(track.children);
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dotsContainer = document.getElementById('sliderDots');
+        
+        let currentIndex = 0;
+        let autoPlayInterval;
+        
+        // Create Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        const dots = Array.from(dotsContainer.children);
+        
+        const updateSlider = () => {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        };
+        
+        const goToSlide = (index) => {
+            currentIndex = index;
+            updateSlider();
+            resetAutoPlay();
+        };
+        
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        };
+        
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        };
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetAutoPlay();
+            });
+        }
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetAutoPlay();
+            });
+        }
+        
+        // Auto Play
+        const startAutoPlay = () => {
+            autoPlayInterval = setInterval(nextSlide, 5000);
+        };
+        
+        const resetAutoPlay = () => {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        };
+        
         startAutoPlay();
-    };
-    
-    startAutoPlay();
 
-    // Pause on hover
-    const sliderContainer = document.querySelector('.testimonial-slider-container');
-    if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
-        sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        // Pause on hover
+        const sliderContainer = document.querySelector('.testimonial-slider-container');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', () => clearInterval(autoPlayInterval));
+            sliderContainer.addEventListener('mouseleave', startAutoPlay);
+        }
     }
     
     /* =========================================
