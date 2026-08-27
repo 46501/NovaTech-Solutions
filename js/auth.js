@@ -103,8 +103,8 @@ function updateNavbar(session) {
         });
     } else {
         authNavContainer.innerHTML = `
-            <a href="${loginPath}" class="btn" style="background:transparent; border:none; color:var(--text-color);">Log in</a>
-            <a href="${signupPath}" class="btn btn-primary nav-btn">Sign Up</a>
+            <a href="${loginPath}" class="btn" style="background:transparent; border:none; color:var(--text-color);">Log In</a>
+            <a href="${signupPath}" class="btn btn-primary nav-btn">Get Started</a>
         `;
     }
 }
