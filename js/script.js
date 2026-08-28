@@ -393,16 +393,16 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
             
             const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
+            const urlEncodedData = new URLSearchParams(formData).toString();
 
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/x-www-form-urlencoded'
                     },
-                    body: JSON.stringify(data)
+                    body: urlEncodedData
                 });
                 
                 if (response.ok) {
